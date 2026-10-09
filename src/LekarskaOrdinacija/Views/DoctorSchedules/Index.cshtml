@@ -1,0 +1,2 @@
+@model IEnumerable<DoctorSchedule>
+<h2>Raspored lekara</h2><a asp-action="Create" class="btn btn-primary mb-3">Dodaj radno vreme</a><table class="table"><tr><th>Lekar</th><th>Dan</th><th>Od</th><th>Do</th><th></th></tr>@foreach(var x in Model){<tr><td>@x.Doctor?.FullName</td><td>@x.DayOfWeek</td><td>@x.StartTime</td><td>@x.EndTime</td><td><form asp-action="Delete" method="post"><input type="hidden" name="id" value="@x.Id"/><button class="btn btn-sm btn-danger">Obriši</button></form></td></tr>}</table>
